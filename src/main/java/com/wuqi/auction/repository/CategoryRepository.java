@@ -1,6 +1,9 @@
 package com.wuqi.auction.repository;
 
 import com.wuqi.auction.pojo.po.Category;
+import com.wuqi.auction.pojo.vo.CategoryNode;
+
+import java.util.List;
 
 /**
  * 创建人: 武奇
@@ -8,4 +11,8 @@ import com.wuqi.auction.pojo.po.Category;
  */
 public interface CategoryRepository {
     void insert(Category category);
+
+    List<Category> plainList();
+
+    List<CategoryNode> treeList();
 }

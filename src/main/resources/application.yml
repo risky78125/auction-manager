@@ -7,3 +7,5 @@ mybatis:
   type-aliases-package: com.wuqi.auction.pojo
   mapper-locations: classpath:mapper/*Repository.xml
   type-handlers-package: com.wuqi.auction.handler
+  configuration:
+    map-underscore-to-camel-case: true

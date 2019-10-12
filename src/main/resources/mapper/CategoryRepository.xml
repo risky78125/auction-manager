@@ -8,4 +8,24 @@
         insert into tb_category (id, name, parent_id) values (null, #{name}, #{parentId})
     </insert>
 
+    <select id="plainList" resultType="category">
+        select * from tb_category;
+    </select>
+
+    <resultMap id="treeMap" type="categoryNode" autoMapping="true">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="parent_id" property="parentId"/>
+        <collection property="children" column="id" ofType="categoryNode"
+                    select="findChildren"/>
+    </resultMap>
+
+    <select id="treeList" resultMap="treeMap">
+        select id, name, parent_id from tb_category where parent_id = 0
+    </select>
+
+    <select id="findChildren" resultMap="treeMap">
+        select id, name, parent_id from tb_category where parent_id = #{id}
+    </select>
+
 </mapper>
