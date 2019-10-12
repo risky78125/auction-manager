@@ -15,8 +15,8 @@ public class Money {
         this(0L);
     }
 
-    public Money(long val) {
-        this.value = val;
+    public Money(Long val) {
+        this.value = val == null ? 0 : val;
     }
 
     public Money add(Money other) {
@@ -77,5 +77,9 @@ public class Money {
     @Override
     public String toString() {
         return format();
+    }
+
+    public long value() {
+        return this.value;
     }
 }

@@ -15,7 +15,7 @@ public class MoneyTest {
     @Test
     public void format() {
 
-        Money money = new Money(123456);
+        Money money = new Money(123456L);
         System.out.println("money = " + money);
         Money add = money.add(23020);
         System.out.println("add = " + add);
