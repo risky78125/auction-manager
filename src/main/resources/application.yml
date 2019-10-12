@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_auction_manager?useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+mybatis:
+  type-aliases-package: com.wuqi.auction.pojo
+  mapper-locations: classpath:mapper/*Repository.xml
+  type-handlers-package: com.wuqi.auction.handler
