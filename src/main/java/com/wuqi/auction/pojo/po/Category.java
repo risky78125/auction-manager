@@ -1,7 +1,6 @@
 package com.wuqi.auction.pojo.po;
 
 import lombok.Data;
-import org.hibernate.validator.constraints.Length;
 import org.springframework.util.StringUtils;
 
 import javax.validation.constraints.NotBlank;

@@ -1,18 +1,13 @@
 package com.wuqi.auction.service.impl;
 
-import com.wuqi.auction.exception.NormalException;
 import com.wuqi.auction.pojo.dto.CategoryBody;
 import com.wuqi.auction.pojo.po.Category;
 import com.wuqi.auction.pojo.vo.CategoryNode;
 import com.wuqi.auction.repository.CategoryRepository;
 import com.wuqi.auction.service.CategoryService;
-import com.wuqi.auction.utils.Asserts;
 import com.wuqi.auction.utils.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
