@@ -36,4 +36,9 @@ public class CategoryServiceImpl implements CategoryService {
     public List<CategoryNode> listWithTree() {
         return this.categoryRepository.treeList();
     }
+
+    @Override
+    public void deleteInIds(List<Integer> ids) {
+        this.categoryRepository.deleteInIds(ids);
+    }
 }

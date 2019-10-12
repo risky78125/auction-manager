@@ -21,11 +21,18 @@
     </resultMap>
 
     <select id="treeList" resultMap="treeMap">
-        select id, name, parent_id from tb_category where parent_id = 0
+        select id, name, parent_id from tb_category where parent_id is null
     </select>
 
     <select id="findChildren" resultMap="treeMap">
         select id, name, parent_id from tb_category where parent_id = #{id}
     </select>
+
+    <delete id="deleteInIds">
+        delete from tb_category where id in
+        <foreach collection="list" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 
 </mapper>

@@ -18,4 +18,5 @@ public interface CategoryService {
 
     List<CategoryNode> listWithTree();
 
+    void deleteInIds(List<Integer> ids);
 }

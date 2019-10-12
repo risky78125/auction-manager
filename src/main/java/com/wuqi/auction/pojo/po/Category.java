@@ -13,7 +13,4 @@ public class Category {
     private String name;
     private Integer parentId;
 
-    public Integer getParentId() {
-        return this.parentId == null ? 0 : this.parentId;
-    }
 }

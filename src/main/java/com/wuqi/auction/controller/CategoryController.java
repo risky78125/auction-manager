@@ -6,10 +6,7 @@ import com.wuqi.auction.pojo.vo.CategoryNode;
 import com.wuqi.auction.service.CategoryService;
 import com.wuqi.auction.utils.PageItem;
 import com.wuqi.auction.utils.ResultWrapper;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -40,6 +37,12 @@ public class CategoryController {
     public ResultWrapper treeList() {
         List<CategoryNode> tree = this.categoryService.listWithTree();
         return ResultWrapper.success(tree);
+    }
+
+    @RequestMapping(value = "/category/{ids}", method = RequestMethod.DELETE)
+    public ResultWrapper delete(@PathVariable List<Integer> ids) {
+        this.categoryService.deleteInIds(ids);
+        return ResultWrapper.success("批量删除成功");
     }
 
 }
