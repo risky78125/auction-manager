@@ -77,8 +77,16 @@ public class ResultWrapper {
     }
 
     public static ResultWrapper error(int code, String message) {
+        return error(code, message, null);
+    }
+
+    public static ResultWrapper error(String message, Object data) {
+        return error(DEFAULT_ERROR_CODE, message, data);
+    }
+
+    public static ResultWrapper error(int code, String message, Object data) {
         String msg = handleMessage(code, message);
-        return create(code, false, msg, null);
+        return create(code, false, msg, data);
     }
 
     /* ---------------私有方法-------------- */

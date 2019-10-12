@@ -35,4 +35,9 @@
         </foreach>
     </delete>
 
+    <update id="updateById">
+        update tb_category set name = #{name}, parent_id = #{parentId}
+        where id = #{id}
+    </update>
+
 </mapper>

@@ -1,6 +1,10 @@
 package com.wuqi.auction.pojo.po;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
+import org.springframework.util.StringUtils;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  * 创建人: 武奇
@@ -10,7 +14,17 @@ import lombok.Data;
 public class Category {
 
     private Integer id;
+    @NotBlank(message = "分类名称不能为空")
+    @Length(min = 1, max = 10)
     private String name;
     private Integer parentId;
+
+    public boolean isValid() {
+        return StringUtils.hasText(name);
+    }
+
+    public Integer getParentId() {
+        return parentId == null || parentId <= 0 ? null : this.parentId;
+    }
 
 }

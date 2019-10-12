@@ -17,4 +17,6 @@ public interface CategoryRepository {
     List<CategoryNode> treeList();
 
     int deleteInIds(List<Integer> ids);
+
+    int updateById(Category category);
 }

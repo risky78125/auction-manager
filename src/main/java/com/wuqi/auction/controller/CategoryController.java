@@ -1,11 +1,13 @@
 package com.wuqi.auction.controller;
 
 import com.wuqi.auction.pojo.dto.CategoryBody;
+import com.wuqi.auction.pojo.dto.CategoryListWrapper;
 import com.wuqi.auction.pojo.po.Category;
 import com.wuqi.auction.pojo.vo.CategoryNode;
 import com.wuqi.auction.service.CategoryService;
 import com.wuqi.auction.utils.PageItem;
 import com.wuqi.auction.utils.ResultWrapper;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -22,7 +24,7 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @RequestMapping(value = "/category", method = RequestMethod.POST)
-    public ResultWrapper add(@RequestBody CategoryBody body) {
+    public ResultWrapper add(@RequestBody @Validated CategoryBody body) {
         this.categoryService.add(body);
         return ResultWrapper.success("分类增加成功");
     }
@@ -43,6 +45,18 @@ public class CategoryController {
     public ResultWrapper delete(@PathVariable List<Integer> ids) {
         this.categoryService.deleteInIds(ids);
         return ResultWrapper.success("批量删除成功");
+    }
+
+    @RequestMapping(value = "/category", method = RequestMethod.PUT)
+    public ResultWrapper update(@RequestBody @Validated Category category) {
+        this.categoryService.update(category);
+        return ResultWrapper.success("分类修改成功");
+    }
+
+    @RequestMapping(value = "/category/batch", method = RequestMethod.PUT)
+    public ResultWrapper batchUpdate(@RequestBody @Validated CategoryListWrapper glw) {
+        this.categoryService.batchUpdate(glw.getCategories());
+        return ResultWrapper.success("分类修改成功");
     }
 
 }
