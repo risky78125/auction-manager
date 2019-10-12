@@ -51,7 +51,7 @@ public class Money {
     }
 
     public String format() {
-        return format(FormatType.LOWSER_CASE);
+        return format(FormatType.LOWER_CASE);
     }
 
     public String format(FormatType type) {

@@ -6,6 +6,6 @@ package com.wuqi.auction.money;
  */
 public enum FormatType {
 
-    UPPER_CASE, LOWSER_CASE, CHINESE
+    UPPER_CASE, LOWER_CASE, CHINESE
 
 }
