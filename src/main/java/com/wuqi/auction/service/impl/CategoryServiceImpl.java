@@ -56,12 +56,8 @@ public class CategoryServiceImpl implements CategoryService {
     @Transactional
     @Override
     public void batchUpdate(List<Category> categories) {
-        if (!CollectionUtils.isEmpty(categories)) {
-            for (Category category : categories) {
-                this.categoryRepository.updateById(category);
-            }
-        } else {
-            throw new NormalException("请正确的传递数据");
+        for (Category category : categories) {
+            this.categoryRepository.updateById(category);
         }
     }
 }

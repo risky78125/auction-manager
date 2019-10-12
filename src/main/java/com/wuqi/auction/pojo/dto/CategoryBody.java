@@ -13,7 +13,6 @@ import javax.validation.constraints.NotBlank;
 public class CategoryBody {
 
     @NotBlank(message = "分类名称不能为空")
-    @Length(min = 1, max = 10)
     private String name;
     private Integer parentId;
 
