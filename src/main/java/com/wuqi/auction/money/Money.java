@@ -10,6 +10,7 @@ import java.math.RoundingMode;
 public class Money {
 
     private long value;
+    private String text;
 
     public Money() {
         this(0L);
@@ -81,5 +82,17 @@ public class Money {
 
     public long value() {
         return this.value;
+    }
+
+    public String getText() {
+        return toString();
+    }
+
+    public void setValue(long value) {
+        this.value = value;
+    }
+
+    public long getValue() {
+        return value;
     }
 }
